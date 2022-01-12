@@ -27,12 +27,12 @@ provider "aws" {
 
 
 
-resource "random_pet" "sg" {}
+resource "random_pet" "sg-1" {}
 
-resource "aws_instance" "web" {
+resource "aws_instance" "web1" {
   ami                    = "ami-830c94e3"
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.web-sg.id]
+  vpc_security_group_ids = [aws_security_group.web1-sg.id]
 
   user_data = <<-EOF
               #!/bin/bash
