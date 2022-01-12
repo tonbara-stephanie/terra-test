@@ -1,13 +1,7 @@
 provider "aws" {
   region = var.aws_region
 }
-cloud {
-    organization = "atte"
 
-    workspaces {
-      name = "gh-actions-demo"
-    }
-}
 
 #Create security group with firewall rules
 resource "aws_security_group" "security_jenkins_port" {
