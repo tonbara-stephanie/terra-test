@@ -26,12 +26,12 @@ provider "aws" {
 }
 
 
-resource "random_pet" "sg" {}
+resource "random_pet" "sg2" {}
 
-resource "aws_instance" "web" {
+resource "aws_instance" "web2" {
   ami                    = "ami-830c94e3"
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.web-sg.id]
+  vpc_security_group_ids = [aws_security_group.web2-sg.id]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -40,7 +40,7 @@ resource "aws_instance" "web" {
               EOF
 }
 
-resource "aws_security_group" "web-sg" {
+resource "aws_security_group" "web2-sg" {
   name = "${random_pet.sg.id}-sg"
   ingress {
     from_port   = 8080
