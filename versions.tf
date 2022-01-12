@@ -27,5 +27,12 @@ terraform {
   }
 
   required_version = ">= 0.14"
+  cloud {
+    organization = "atte"
+
+    workspaces {
+      name = "gh-actions-demo"
+    }
+}
 }
 
